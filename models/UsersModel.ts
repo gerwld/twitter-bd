@@ -47,11 +47,7 @@ const UserSchema = new Schema<UserModelInterface>(
     location: String,
     about: String,
     website: String,
-    tweets: [{ type: Schema.Types.ObjectId, ref: 'Tweet' }],
-  },
-  {
-    timestamps: true,
-  },
+  }
 );
 
 UserSchema.set('toJSON', {
@@ -62,4 +58,4 @@ UserSchema.set('toJSON', {
   },
 });
 
-export const UserModel = model<UserModelDocumentInterface>('User', UserSchema);
+export const UserModel = model('User', UserSchema);

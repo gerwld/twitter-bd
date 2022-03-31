@@ -2,12 +2,12 @@ import mongoose from 'mongoose';
 
 mongoose.Promise = Promise;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/twitter', {
+const URI = process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/twitter';
+
+mongoose.connect(URI, {
   useNewUrlParser: true,
-  useCreateIndex: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
-});
+} as any);
 
 const db = mongoose.connection;
 
